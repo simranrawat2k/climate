@@ -1,0 +1,293 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: white;
+  --text-color: black;
+}
+
+[data-theme="dark"] {
+  --bg-color: rgb(15, 23, 42);
+  --box-color: rgb(31, 41, 59);
+  --text-color: rgb(238, 238, 238);
+}
+
+[data-theme="light"] {
+  --bg-color: rgb(215, 228, 255);
+  --box-color: rgb(121, 164, 255);
+  --text-color: black;
+}
+
+body {
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.weather {
+  width: 400px;
+  min-height: 510px;
+  background-color: var(--box-color);
+  border-radius: 30px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-color);
+  min-height: 100vh;
+}
+
+.theme {
+  top: 20px;
+  text-align: end;
+  position: absolute;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme svg {
+  font-size: 25px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 15px;
+  background-color: white;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.switch::after {
+  content: "";
+  position: absolute;
+  top: 0.1rem;
+  left: 0.1rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgb(0, 163, 255);
+  transition: all 0.2s linear;
+}
+
+.switch.dark::after {
+  transform: translate(28px, 0);
+}
+
+.search-bar {
+  margin: 0px 35px 25px 35px;
+  width: 100%;
+  background: white;
+  border-radius: 20px;
+  line-height: 35px;
+  position: relative;
+}
+
+.search-bar input {
+  margin-left: 10px;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  padding-left: 10px;
+}
+
+.search-bar button {
+  font-size: 20px;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 6px;
+}
+
+.city {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+  justify-content: center;
+}
+
+.city .image img {
+  width: 130px;
+  height: 100px;
+}
+
+.city-name {
+  font-size: 40px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+}
+
+.sky {
+  text-transform: uppercase;
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+  margin-top: 8px;
+}
+
+.max-min {
+  display: flex;
+  gap: 30px;
+  color: white;
+  font-size: 15px;
+  align-items: center;
+  justify-content: center;
+  font-weight: 100;
+}
+
+.temp .avg {
+  font-size: 70px;
+  color: white;
+  font-weight: 900;
+}
+
+.city-climate {
+  text-align: center;
+}
+
+.humidity-wind {
+  display: flex;
+  gap: 37px;
+  text-align: start;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+}
+
+.humidity-wind > div {
+  display: flex;
+  gap: 8px;
+}
+
+.humidity-wind svg {
+  font-size: 35px;
+  margin-top: 10px;
+}
+
+.humidity-num,
+.wind-num {
+  font-size: 28px;
+}
+
+.humidity-text,
+.wind-text {
+  font-size: 15px;
+}
+
+.error{
+  color:white;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .theme svg {
+    font-size: 20px;
+  }
+
+  .city-name {
+    font-size: 30px;
+    letter-spacing: 4px;
+  }
+
+  .sky {
+    font-size: 17px;
+  }
+
+  .city .image img {
+    width: 120px;
+    height: 90px;
+  }
+
+  .temp .avg {
+    font-size: 50px;
+    color: white;
+    font-weight: 900;
+  }
+
+  .weather {
+    width: 340px;
+    min-height: 470px;
+    margin-top: 40px;
+  }
+
+  .search-bar {
+    margin: 0px 6px 25px 4px;
+  }
+
+  .humidity-num,
+  .wind-num {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .theme svg {
+    font-size: 15px;
+  }
+
+  .city-name {
+    font-size: 25px;
+    letter-spacing: 4px;
+  }
+
+  .sky {
+    font-size: 13px;
+  }
+
+  .city .image img {
+    width: 90px;
+    height: 80px;
+  }
+
+  .temp .avg {
+    font-size: 40px;
+    font-weight: 900;
+  }
+
+  .weather {
+    width: 295px;
+    min-height: 440px;
+    margin-top: 40px;
+    padding: 10px;
+
+}
+
+.search-bar {
+  margin: 0px 35px 25px 35px;
+  width: 90%;
+  line-height: 30px;
+}
+
+  .humidity-num,
+  .wind-num {
+    font-size: 18px;
+  }
+
+  .search-bar button {
+    top: 3px;
+}
+}
